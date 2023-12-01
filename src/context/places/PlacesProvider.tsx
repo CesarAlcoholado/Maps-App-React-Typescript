@@ -32,8 +32,6 @@ export const PlacesProvider = ({ children }: Props)=> {
 
     const result = await searchApi.get(`/${query}.json`)
 
-    console.log(result.data);
-
     return result.data
   }
 
