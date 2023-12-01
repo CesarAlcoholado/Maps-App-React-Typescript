@@ -1,0 +1,11 @@
+
+.loading-map {
+  position: fixed;
+  top: 0;
+  right: 0;
+  color: #ffffff;
+  background-color: #2B2B2B;
+  opacity: .8;
+  width: 100vw;
+  height: 100vh;
+}
