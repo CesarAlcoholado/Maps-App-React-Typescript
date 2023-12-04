@@ -1,10 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { createContext } from "react";
+import { Feature } from "../../interfaces/Places";
 
 export interface PlacesContextProps {
   isLoading: boolean,
   userLocation?: [ number, number ],
-  searchPlaces: (query: string) => Promise<any>
+  isLoadingPlaces: boolean,
+  places: Feature[],
+
+  //methods
+  searchPlaces: (query: string) => Promise<Feature[]>
 }
 
 

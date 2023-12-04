@@ -3,15 +3,20 @@ import { PlacesContext } from "./PlacesContext"
 import { placesReducer } from "./PlacesReducer"
 import { getUserLocation } from "../../helpers"
 import { searchApi } from "../../apis"
+import { Feature, PlacesResponse } from "../../interfaces/Places"
 
 export interface PlacesState {
   isLoading: boolean,
-  userLocation?: [ number, number ]
+  userLocation?: [ number, number ],
+  isLoadingPlaces: boolean,
+  places: Feature[]
 }
 
 const INITIAL_STATE: PlacesState = {
   isLoading: true,
-  userLocation: undefined
+  userLocation: undefined,
+  isLoadingPlaces: false,
+  places: []
 }
 
 interface Props {
@@ -26,13 +31,16 @@ export const PlacesProvider = ({ children }: Props)=> {
     getUserLocation().then(lnglat => dispatch ({type: "SET_USER_LOCATION", payload: lnglat}))
   }, [])
   
-  const searchPlaces = async (query: string) => {
+  const searchPlaces = async (query: string): Promise<Feature[]> => {
     if (query.length === 0) return []; //limpio el state
     if (!state.userLocation) throw new Error ('No location detected');
 
-    const result = await searchApi.get(`/${query}.json`)
+    dispatch({type: 'SET_LOADING_PLACES'});
 
-    return result.data
+    const result = await searchApi.get<PlacesResponse>(`/${query}.json`)
+
+    dispatch({type: 'SET_PLACES', payload: result.data.features})
+    return result.data.features
   }
 
   return (
