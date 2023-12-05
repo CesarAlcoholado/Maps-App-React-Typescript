@@ -6,8 +6,16 @@ import { LoadingPlaces } from "..";
 export const SearchResults = () => {
   const [activeId, setActiveId] = useState('')
 
-  const { places, isLoadingPlaces } = useContext(PlacesContext);
-  const { map } = useContext(MapContext);
+  const { places, isLoadingPlaces, userLocation } = useContext(PlacesContext);
+  const { map, getRouteBetween } = useContext(MapContext);
+
+  const getRoute = (place: Feature) => {
+    if (!userLocation) return;
+
+    const [lng, lat] = place.center;
+    getRouteBetween(userLocation, [lng, lat]);
+
+  }
 
   const handlePlaceClick = (place: Feature) => {
     setActiveId(place.id)
@@ -31,7 +39,8 @@ export const SearchResults = () => {
           style={{fontSize: "12px"}}>
             {place.place_name}
           </p>
-        <button className={`${(activeId === place.id) ? 'btn-outline-light' : 'btn-outline-dark'} btn btn-sm`}>Directions</button>
+        <button className={`${(activeId === place.id) ? 'btn-outline-light' : 'btn-outline-dark'} btn btn-sm`}
+        onClick={()=> getRoute(place)}>Directions</button>
         </li>
       )
       )
