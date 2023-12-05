@@ -78,7 +78,8 @@ export const MapProvider = ({ children }: Props) => {
     const response = await directionsApi.get<DirectionsResponse>(`/${start.join(',')};${end.join(',')}`);
     
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { distance, duration, geometry } = response.data.routes[0]
+    //distance, duration
+    const { geometry } = response.data.routes[0]
     const {coordinates: coords } = geometry;
     // const kms = (Math.round((distance / 1000)*100))/100;
     // const minutes = Math.floor(duration / 60);
