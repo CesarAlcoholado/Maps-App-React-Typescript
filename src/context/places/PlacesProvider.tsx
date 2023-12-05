@@ -32,7 +32,10 @@ export const PlacesProvider = ({ children }: Props)=> {
   }, [])
   
   const searchPlaces = async (query: string): Promise<Feature[]> => {
-    if (query.length === 0) return []; //limpio el state
+    if (query.length === 0) {
+      dispatch({type: 'SET_PLACES', payload: []})
+      return []
+    }
     if (!state.userLocation) throw new Error ('No location detected');
 
     dispatch({type: 'SET_LOADING_PLACES'});
