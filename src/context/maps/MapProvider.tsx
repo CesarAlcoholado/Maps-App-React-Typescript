@@ -1,4 +1,4 @@
-//@ts-ignore
+//@ts-expect-error to fix mapbox deply error
 import { AnySourceData, LngLatBounds, Map, Marker, Popup } from "!mapbox-gl";
 import { DirectionsResponse } from "../../interfaces/Directions";
 import { useContext, useEffect, useReducer } from "react";
@@ -77,6 +77,7 @@ export const MapProvider = ({ children }: Props) => {
   const getRouteBetween = async (start: [number, number], end: [number, number]) => {
     const response = await directionsApi.get<DirectionsResponse>(`/${start.join(',')};${end.join(',')}`);
     
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { distance, duration, geometry } = response.data.routes[0]
     const {coordinates: coords } = geometry;
     // const kms = (Math.round((distance / 1000)*100))/100;

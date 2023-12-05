@@ -1,6 +1,6 @@
 import { useContext, useLayoutEffect, useRef } from "react"
 import { MapContext, PlacesContext } from "../../context"
-//@ts-ignore
+//@ts-expect-error to fix mapbox deply error
 import mapboxgl from "!mapbox-gl"
 import { Loading } from ".."
 

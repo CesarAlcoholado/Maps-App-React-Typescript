@@ -1,4 +1,5 @@
-//@ts-ignore
+
+//@ts-expect-error to fix mapbox deply error
 import mapboxgl from '!mapbox-gl'; // or "const mapboxgl = require('mapbox-gl');"
 import "bootswatch/dist/morph/bootstrap.min.css";
 import ReactDOM from 'react-dom/client';

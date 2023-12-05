@@ -1,4 +1,4 @@
-//@ts-ignore
+//@ts-expect-error to fix mapbox deply error
 import { Map, Marker } from "!mapbox-gl";
 import { MapState } from "./MapProvider";
 

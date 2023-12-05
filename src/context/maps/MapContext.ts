@@ -1,5 +1,5 @@
 import { createContext } from "react";
-//@ts-ignore
+//@ts-expect-error to fix mapbox deply error
 import { Map } from "!mapbox-gl";
 
 interface MapContextProps {
