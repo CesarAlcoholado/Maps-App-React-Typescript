@@ -79,8 +79,8 @@ export const MapProvider = ({ children }: Props) => {
     
     const { distance, duration, geometry } = response.data.routes[0]
     const {coordinates: coords } = geometry;
-    const kms = (Math.round((distance / 1000)*100))/100;
-    const minutes = Math.floor(duration / 60);
+    // const kms = (Math.round((distance / 1000)*100))/100;
+    // const minutes = Math.floor(duration / 60);
 
     const bounds = new LngLatBounds(
       start,
