@@ -1,6 +1,7 @@
+//@ts-ignore
+import { AnySourceData, LngLatBounds, Map, Marker, Popup } from "!mapbox-gl";
 import { DirectionsResponse } from "../../interfaces/Directions";
 import { useContext, useEffect, useReducer } from "react";
-import { AnySourceData, LngLatBounds, Map, Marker, Popup } from "mapbox-gl";
 import { directionsApi } from "../../apis";
 import { MapContext } from "./MapContext";
 import { mapReducer } from "./MapReducer";

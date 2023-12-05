@@ -1,8 +1,9 @@
-import React from 'react';
+//@ts-ignore
+import mapboxgl from '!mapbox-gl'; // or "const mapboxgl = require('mapbox-gl');"
+import "bootswatch/dist/morph/bootstrap.min.css";
 import ReactDOM from 'react-dom/client';
 import MapsApp from './MapsApp.tsx';
-import "bootswatch/dist/morph/bootstrap.min.css";
-import mapboxgl from 'mapbox-gl'; // or "const mapboxgl = require('mapbox-gl');"
+import React from 'react';
 
 if (!navigator.geolocation) {
   alert ( "Tu navegador no tiene acceso a la geolocalizacion" );
