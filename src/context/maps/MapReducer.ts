@@ -1,5 +1,5 @@
-//@ts-expect-error to fix mapbox deply error
-import { Map, Marker } from "!mapbox-gl";
+
+import { Map, Marker } from "mapbox-gl";
 import { MapState } from "./MapProvider";
 
 type MapAction = {type: "SET_MAP", payload: Map} | {type: 'SET_MARKERS', payload: Marker[]}

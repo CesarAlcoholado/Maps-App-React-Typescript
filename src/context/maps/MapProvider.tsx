@@ -1,5 +1,5 @@
-//@ts-expect-error to fix mapbox deply error
-import { AnySourceData, LngLatBounds, Map, Marker, Popup } from "!mapbox-gl";
+
+import { AnySourceData, LngLatBounds, Map, Marker, Popup } from "mapbox-gl";
 import { DirectionsResponse } from "../../interfaces/Directions";
 import { useContext, useEffect, useReducer } from "react";
 import { directionsApi } from "../../apis";
